@@ -24,3 +24,21 @@ def bfs(graph, start):
 
 # Start BFS from vertex 'A'
 bfs(graph, 'A')
+
+
+END----
+
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.tag import pos_tag
+
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+sentence ="The chef cooks the soup."
+
+words = word_tokenize(sentence)
+
+pos_tags =  nltk.pos_tag(words)
+
+print(pos_tags)
