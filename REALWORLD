@@ -1,0 +1,26 @@
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+def bfs(graph, start):
+    visited = set()      # Set to keep track of visited nodes
+    queue = deque([start])  # Initialize the queue with the start node
+
+    while queue:
+        vertex = queue.popleft()  # Get the next vertex from the queue
+        if vertex not in visited:
+            print(vertex)  # Process the current vertex
+            visited.add(vertex)
+
+            # Add the unvisited neighbors to the queue
+            for neighbor in graph[vertex]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
+# Start BFS from vertex 'A'
+bfs(graph, 'A')
